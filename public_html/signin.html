@@ -1,0 +1,121 @@
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html ng-app='login'>
+    <head>
+        <title>Flex Tracker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <script type="application/x-javascript"> 
+            addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
+            function hideURLbar(){ window.scrollTo(0,1); }
+        </script>
+        <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+        <!-- Custom Theme files -->
+        <script src="js/jquery.min.js"></script>
+        <script src="angularjs/angularMain/angular.min.js"></script>
+        <script src="angularjs/angularMain/angular-route.js"></script>
+        <script src="angularjs/angularMain/angular-resource.js"></script>
+        <script src="angularjs/angularMain/customSelect.js"></script>
+        <script src="angularjs/angularMain/format.js"></script>
+        <script src="angularjs/controllers/login.js"></script>
+        <link href="css/style.css" rel='stylesheet' type='text/css' />
+        <link href="css/font-awesome.css" rel="stylesheet"> 
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="login" ng-controller="loginCntrl">
+            <h1><a href="index.html">Flex Communication </a><b>
+                 <!--   <div ng-show="online" class="fa fa-circle-thin btn-success"></div>
+                    <div ng-hide="online" class="fa fa-circle btn-danger"></div></b>
+                 -->
+            </h1>
+            <div class="login-bottom" ng-hide="data.showPassswordRetrival" ng-init="data.showPassswordRetrival = false">
+                <h2>Login Panel</h2>
+                <form name='userLoginForm' novalidate="">
+                    <div class="col-md-12">
+                       <div online-status></div>
+                        <div class="login-mail">
+                            <input type="text" placeholder="Email/phone/username" 
+                                   ng-model='data.userLogin.username'
+                                   required="">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="login-mail">
+                            <input type="{{data.userLogin.inputType}}" ng-init="data.userLogin.inputType = 'password'" 
+                                   placeholder="Password" required="" 
+                                   ng-model='data.userLogin.password'>
+                            <i class="fa fa-lock"></i>
+                        </div>
+                        <a class="news-letter " href="#">
+
+
+                            <i> </i><a ng-click="data.changeLoginpanel(data.showPassswordRetrival)">Forget Password</a>
+
+                            <label class=" pull-right">
+                                <input type="checkbox" ng-model='data.userLogin.showPassword' 
+                                       ng-init="data.userLogin.showPassword = 'false'"
+                                       ng-click="data.changeDisplayPassword(data.userLogin.showPassword)"
+                                       name="checkbox" >
+                                <i> </i>Show Password
+                            </label>
+                        </a>
+
+                    </div>
+                    <div class="col-md-12 login-do">
+                        <button class="btn btn-success col-md-12" ng-disabled="userLoginForm.$invalid"
+                                ng-click='data.userLoginFxn(data.userLogin)'
+                                >login</button>
+
+                    </div>
+                    <p class='pull-right'><a href='signup.html'>Do not have an account?</a></p>
+                    <div class="clearfix"> </div>
+                </form>
+            </div>
+
+            <div class="login-bottom" ng-show="data.showPassswordRetrival">
+                <h2>Password Retrieval</h2>
+                <form name='passwordRtvl' novalidate="">
+                    <div class="col-md-12">
+                        <div class="login-mail">
+                            <input type="text" placeholder="Email/phone/username" 
+                                   ng-model='data.passswordRetrival.username' name='username'
+                                   required="">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <span style="color:red" ng-show="passwordRtvl.username.$dirty && passwordRtvl.username.$error.required">
+                            field is required.    
+                        </span>
+                    </div>
+                    <div class="col-md-12 login-do">
+                        <button class="btn btn-success col-md-12" ng-disabled="passwordRtvl.$invalid">Send</button>
+
+                    </div>
+                    <p class='pull-right'><br>
+                        <a ng-click="data.changeLoginpanel(data.showPassswordRetrival)"><<< Return To Login</a>
+                    </p>
+                    <div class="clearfix"> </div>
+                </form>
+            </div>
+
+        </div>
+        <!---->
+        <div class="copy-right">
+            <hr >
+            <p> &copy;  
+                <a href="http://flex.com/" target="_blank">Flex Communication</a> @2016</p>	    </div>  
+        <!---->
+        <!--scrolling js-->
+        <script src="js/jquery.nicescroll.js"></script>
+        <script src="js/scripts.js"></script>
+        <!--//scrolling js-->
+    </body>
+</html>
+
